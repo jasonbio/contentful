@@ -1,6 +1,3 @@
-/*
-Package contentful interactes with Conetenful's Delivery API https://contentful.com/developers
-*/
 package contentful
 
 import (
@@ -116,7 +113,6 @@ func (c Contentful) GetSpace(spaceId string, query map[string]string) (space Spa
 	return s, nil
 }
 
-// utils methods =================================================================================
 func (c Contentful) makeRequest(method, path string) (request *http.Request, err error) {
 	req, err := http.NewRequest(method, baseUrl+"/"+path, nil)
 	if err != nil {
@@ -125,7 +121,7 @@ func (c Contentful) makeRequest(method, path string) (request *http.Request, err
 
 	req.Header.Set("Authorization", "Bearer "+c.accessToken)
 	req.Header.Set("Content-Type", "application/vnd.contentful.delivery.v1+json")
-	req.Header.Set("X-Contentful-User-Agent", "contentful.go/1.0") // hardcoded for now
+	req.Header.Set("X-Contentful-User-Agent", "contentful.go/1.0")
 	return req, nil
 }
 func (c Contentful) performeRequest(method, path string, query map[string]string) (reader io.Reader, err error) {
