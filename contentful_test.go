@@ -9,7 +9,7 @@ import (
 )
 
 func TestGetEntry(t *testing.T) {
-	var entryId string = "nyancat"
+	var entryId string = "exampleentry"
 	client := createClient()
 	entry, err := client.GetEntry(entryId, nil)
 	if err != nil {
@@ -21,7 +21,7 @@ func TestGetEntry(t *testing.T) {
 	}
 }
 func TestGetSpace(t *testing.T) {
-	var spaceId string = "cfexampleapi"
+	var spaceId string = "examplespace"
 	client := createClient()
 	space, err := client.GetSpace(spaceId, nil)
 	if err != nil {
@@ -65,5 +65,5 @@ func TestGetContentTypes(t *testing.T) {
 	}
 }
 func createClient() contentful.Contentful {
-	return contentful.CreateClient("cfexampleapi", "b4c0n73n7fu1")
+	return contentful.CreateClient("examplespace", "examplekey")
 }
